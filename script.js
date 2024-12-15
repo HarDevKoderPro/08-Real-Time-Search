@@ -8,31 +8,30 @@
 
 // Referencio los elementos del DOM
 const doQueSel = (selector) => document.querySelector(selector);
-const inputBusqueda = doQueSel('.inputBusqueda');
-const spanResultados = doQueSel('.spanResultados');
+const inputBusqueda = doQueSel(".inputBusqueda");
+const spanResultados = doQueSel(".spanResultados");
 
 // variables Globales
 let datosFiltrados = [];
 const datos = [
-  { nombre: "juan", edad: 23, ciudad: "Medellin" },
-  { nombre: "pedro", edad: 25, ciudad: "Medellin" },
-  { nombre: "maria", edad: 22, ciudad: "Medellin" },
-  { nombre: "melissa", edad: 28, ciudad: "Medellin" },
-  { nombre: "julio", edad: 33, ciudad: "Medellin" },
+  { nombre: "Juan", edad: 23, ciudad: "Medellin" },
+  { nombre: "Pedro", edad: 25, ciudad: "Bogotá" },
+  { nombre: "Maria", edad: 22, ciudad: "Cali" },
+  { nombre: "Melissa", edad: 28, ciudad: "Medellin" },
+  { nombre: "Julio", edad: 33, ciudad: "Bucaramanga" },
 ];
 
-
 // Funcion que realiza la busqueda
-function busquedaInstantanea (){
+function busquedaInstantanea() {
   // Capturo palabra a filtrar
-  let busqueda = inputBusqueda.value.toLowerCase();
+  let busqueda =
+    inputBusqueda.value.charAt(0).toUpperCase() +
+    inputBusqueda.value.split("").splice(1).join("").toLowerCase();
   // no muestro datos si input busqueda esta vacio
-  if(busqueda === ''){
+  if (busqueda === "") {
     datosFiltrados = [];
-  }else{
-    datosFiltrados = datos.filter((dato) =>
-      dato.nombre.startsWith(busqueda)
-    );   
+  } else {
+    datosFiltrados = datos.filter((dato) => dato.nombre.startsWith(busqueda));
   }
 
   // Si no hay coincidencias no muestra datos
@@ -40,8 +39,8 @@ function busquedaInstantanea (){
     spanResultados.innerHTML = "<p>No se encontraron resultados</p>";
   } else {
     // Formateo los datos filtrados
-    let resultados = '';
-    datosFiltrados.forEach(dato => {
+    let resultados = "";
+    datosFiltrados.forEach((dato) => {
       resultados += `<p>
       Nombre: ${dato.nombre}<br>
       Edad: ${dato.edad}<br>
@@ -54,10 +53,8 @@ function busquedaInstantanea (){
       console.log(datosFiltrados);
       // Muestro los resultados en el span
       spanResultados.innerHTML = resultados;
-    })
+    });
   }
 }
 
-inputBusqueda.addEventListener('input', busquedaInstantanea);
-
-
+inputBusqueda.addEventListener("input", busquedaInstantanea);

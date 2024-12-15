@@ -17,7 +17,7 @@ body {
   background: azure;
   font-size: 100%;
 
-  .container{
+  .container {
     width: fit-content;
     height: auto;
     padding: 10px;
@@ -27,24 +27,48 @@ body {
     flex-direction: column;
     gap: 8px;
     align-items: center;
+    background: bisque;
 
-    .tituloPrincipal{
+    .tituloPrincipal {
       font-size: 1.3em;
       color: rgb(75, 74, 74);
     }
 
-    .datosBusqueda{
-      /* border: 1px solid red; */
+    .datosBusqueda {
       display: flex;
       gap: 5px;
 
-      .inputBusqueda{
+      .inputBusqueda {
         border: 1px solid silver;
         padding: 5px;
         outline-color: blue;
       }
     }
 
+    .spanResultados {
+      font-weight: 500;
+    }
+  }
 
+  /* MOBILE RESPONSIVE */
+
+  @media (max-width: 768px) {
+    .container {
+      width: 80%;
+    }
+
+    .datosBusqueda {
+      justify-content: center;
+      align-items: center;
+
+      .inputBusqueda {
+        width: 80%;
+        font-size: 1em;
+      }
+
+      .icon-search {
+        font-size: 1.3em;
+      }
+    }
   }
 }
