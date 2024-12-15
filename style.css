@@ -36,6 +36,9 @@ body {
 
     .datosBusqueda {
       display: flex;
+      justify-content: center;
+      align-items: center;
+
       gap: 5px;
 
       .inputBusqueda {
@@ -58,9 +61,6 @@ body {
     }
 
     .datosBusqueda {
-      justify-content: center;
-      align-items: center;
-
       .inputBusqueda {
         width: 80%;
         font-size: 1em;
